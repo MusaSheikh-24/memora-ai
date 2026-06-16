@@ -231,7 +231,7 @@ export default function LandingPage() {
           <div className="grid md:grid-cols-3 gap-3">
             <div className="md:col-span-2 bg-linear-to-br from-teal-600 to-teal-700 rounded-xl p-6 text-white cursor-pointer hover:shadow-xl transition-all duration-200 hover:-translate-y-1 group">
               <div className="text-2xl font-bold mb-1 group-hover:scale-105 transition-transform inline-block">AI Search</div>
-              <div className="text-teal-100 text-sm">Finds anything across all your tools in seconds.</div>
+              <div className="text-teal-100 text-sm">Find anything across all your tools in seconds.</div>
             </div>
             <div className="bg-white border border-gray-200 rounded-xl p-6 cursor-pointer hover:border-teal-200 hover:shadow-lg transition-all duration-200">
               <div className="text-xl font-bold text-gray-900 mb-1">Knowledge Graph</div>
