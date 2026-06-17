@@ -1,14 +1,12 @@
 import { ReactNode } from 'react';
 
-// Unified inline-SVG icon system (Lucide-style, 1.75px stroke).
-// No external dependency — consistent rendering across all OSes.
-
 export type IconName =
     | 'home' | 'message' | 'folder' | 'calendar' | 'graph' | 'bell'
     | 'sparkles' | 'trending-up' | 'globe' | 'mic' | 'building' | 'users'
     | 'kanban' | 'check-square' | 'zap' | 'grid' | 'settings' | 'search'
     | 'sun' | 'moon' | 'send' | 'eye' | 'more' | 'plus' | 'mail' | 'note'
-    | 'alert' | 'file' | 'contract' | 'receipt' | 'arrow-up-right' | 'voice';
+    | 'alert' | 'file' | 'contract' | 'receipt' | 'arrow-up-right' | 'voice'
+    | 'chevron-right' | 'chevron-down';
 
 const PATHS: Record<IconName, ReactNode> = {
     home: (<><path d="m3 10.5 9-7 9 7" /><path d="M5 9.5V20a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5" /><path d="M9.5 21v-6h5v6" /></>),
@@ -43,6 +41,8 @@ const PATHS: Record<IconName, ReactNode> = {
     receipt: (<><path d="M5 3h14a1 1 0 0 1 1 1v17l-2.5-1.6L15 21l-3-1.6L9 21l-2.5-1.6L4 21V4a1 1 0 0 1 1-1Z" /><path d="M8 8h8M8 12h8M8 16h5" /></>),
     'arrow-up-right': (<><path d="M7 17 17 7" /><path d="M9 7h8v8" /></>),
     voice: (<><path d="M3 12v0M7 8v8M11 5v14M15 9v6M19 11v2" /></>),
+    'chevron-right': (<path d="m9 18 6-6-6-6" />),
+    'chevron-down': (<path d="m6 9 6 6 6-6" />),
 };
 
 interface IconProps {

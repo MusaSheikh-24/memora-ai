@@ -8,40 +8,61 @@ import Icon from '@/components/icon';
 export default function Sidebar() {
     const pathname = usePathname();
     const { openCommand } = useUI();
-    const isActive = (path: string) => pathname === path;
+
+    const isActive = (path: string) => {
+        const normalizedPath = path.startsWith('/') ? path : `/${path}`;
+        const normalizedPathname = pathname.startsWith('/') ? pathname : `/${pathname}`;
+        return pathname === path || normalizedPathname === normalizedPath;
+    };
 
     const renderItem = (item: NavItem) => {
         const active = isActive(item.href);
         const baseClass = `group flex items-center justify-between px-2.5 py-2 rounded-lg text-[13px] transition-all ${active
-            ? 'bg-teal-50 text-teal-700 font-semibold'
-            : item.soon
-                ? 'text-gray-400 cursor-default'
+                ? 'bg-teal-50 text-teal-700 font-semibold'
                 : 'text-gray-500 hover:bg-gray-100 hover:text-gray-800 cursor-pointer'
             }`;
 
         const inner = (
             <>
                 <div className="flex items-center gap-2.5 min-w-0">
-                    <span className={`shrink-0 transition-colors ${active ? 'text-teal-600' : item.soon ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-600'
-                        }`}>
+                    <span
+                        className={`shrink-0 transition-colors ${active
+                                ? 'text-teal-600'
+                                : 'text-gray-400 group-hover:text-gray-600'
+                            }`}
+                    >
                         <Icon name={item.icon} size={15} />
                     </span>
                     <span className="truncate">{item.label}</span>
                 </div>
                 {item.badge && !item.soon && (
-                    <span className={`text-[10px] px-1.5 py-0.5 rounded-md font-bold shrink-0 ${active ? 'bg-teal-100 text-teal-700' : 'bg-gray-100 text-gray-500'
-                        }`}>{item.badge}</span>
+                    <span
+                        className={`text-[10px] px-1.5 py-0.5 rounded-md font-bold shrink-0 ${active ? 'bg-teal-100 text-teal-700' : 'bg-gray-100 text-gray-500'
+                            }`}
+                    >
+                        {item.badge}
+                    </span>
                 )}
                 {item.soon && (
-                    <span className="text-[9px] text-gray-300 font-medium shrink-0 opacity-0 group-hover:opacity-100 transition-opacity">soon</span>
+                    <span className="text-[9px] text-gray-300 font-medium shrink-0 opacity-0 group-hover:opacity-100 transition-opacity">
+                        soon
+                    </span>
                 )}
             </>
         );
 
         if (item.soon) {
-            return <div key={item.href} className={baseClass}>{inner}</div>;
+            return (
+                <div key={item.href} className={baseClass}>
+                    {inner}
+                </div>
+            );
         }
-        return <Link key={item.href} href={item.href} className={baseClass}>{inner}</Link>;
+        return (
+            <Link key={item.href} href={item.href} className={baseClass}>
+                {inner}
+            </Link>
+        );
     };
 
     return (
@@ -74,7 +95,9 @@ export default function Sidebar() {
                         <Icon name="search" size={13} />
                         Search or run…
                     </span>
-                    <kbd className="px-1.5 py-0.5 bg-gray-50 border border-gray-200 rounded text-[10px] font-medium text-gray-400">⌘K</kbd>
+                    <kbd className="px-1.5 py-0.5 bg-gray-50 border border-gray-200 rounded text-[10px] font-medium text-gray-400">
+                        ⌘K
+                    </kbd>
                 </button>
             </div>
 
@@ -83,7 +106,9 @@ export default function Sidebar() {
                 {NAV_SECTIONS.map((section) => (
                     <div key={section.title} className="mb-3">
                         <div className="px-4 mb-1">
-                            <span className="text-[10px] font-semibold text-gray-400 uppercase tracking-widest">{section.title}</span>
+                            <span className="text-[10px] font-semibold text-gray-400 uppercase tracking-widest">
+                                {section.title}
+                            </span>
                         </div>
                         <nav className="flex flex-col gap-px px-2">
                             {section.items.map(renderItem)}
@@ -99,7 +124,9 @@ export default function Sidebar() {
 
             {/* Recent Section */}
             <div className="border-t border-gray-100 px-3 pt-3 pb-2 shrink-0">
-                <div className="text-[10px] font-semibold text-gray-400 uppercase tracking-widest mb-1.5 px-1.5">Recent</div>
+                <div className="text-[10px] font-semibold text-gray-400 uppercase tracking-widest mb-1.5 px-1.5">
+                    Recent
+                </div>
                 <div className="flex flex-col gap-px">
                     {[
                         { icon: 'search' as const, label: 'Show all invoices', time: 'Now' },
@@ -107,7 +134,10 @@ export default function Sidebar() {
                         { icon: 'file' as const, label: 'Find contract ABC', time: '2d ago' },
                         { icon: 'file' as const, label: 'Marketing proposal', time: '2d ago' },
                     ].map((r) => (
-                        <div key={r.label} className="group flex items-center justify-between px-2 py-1.5 rounded-lg text-[12px] text-gray-500 hover:bg-gray-50 hover:text-gray-700 cursor-pointer transition">
+                        <div
+                            key={r.label}
+                            className="group flex items-center justify-between px-2 py-1.5 rounded-lg text-[12px] text-gray-500 hover:bg-gray-50 hover:text-gray-700 cursor-pointer transition"
+                        >
                             <span className="truncate flex items-center gap-2">
                                 <span className="text-gray-300 group-hover:text-gray-400 transition">
                                     <Icon name={r.icon} size={12} />
@@ -127,7 +157,9 @@ export default function Sidebar() {
                         AK
                     </div>
                     <div className="flex-1 min-w-0">
-                        <div className="text-[13px] font-semibold text-gray-800 truncate leading-tight">Ali Khan</div>
+                        <div className="text-[13px] font-semibold text-gray-800 truncate leading-tight">
+                            Ali Khan
+                        </div>
                         <div className="text-[11px] text-gray-400 truncate">ali@syncops.com</div>
                     </div>
                     <Icon name="more" size={14} className="text-gray-300 shrink-0" />

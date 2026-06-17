@@ -9,7 +9,7 @@ export default function HomeRightPanel() {
 
     return (
         <>
-            <aside className="w-72 bg-white border-l border-gray-100 h-screen flex flex-col shrink-0 overflow-hidden">
+            <aside className="w-80 bg-white border-l border-gray-100 h-screen flex flex-col shrink-0 overflow-hidden">
                 {/* Header */}
                 <div className="px-4 py-3 border-b border-gray-100 shrink-0">
                     <div className="flex items-center gap-1.5 text-teal-700 font-semibold text-[13px]">
@@ -98,9 +98,9 @@ export default function HomeRightPanel() {
                         </div>
                         <Link
                             href="/graph"
-                            className="block rounded-lg border border-gray-100 bg-gradient-to-br from-teal-50/40 to-white p-2 hover:border-teal-200 transition group"
+                            className="block rounded-lg border border-gray-100 bg-linear-to-br from-teal-50/40 to-white p-2 hover:border-teal-200 transition group"
                         >
-                            <svg viewBox="0 0 260 140" className="w-full h-[110px]">
+                            <svg viewBox="0 0 260 140" className="w-full h-27.5">
                                 <g stroke="#e2e8f0" strokeWidth="1.5">
                                     <line x1="130" y1="70" x2="44" y2="28" />
                                     <line x1="130" y1="70" x2="216" y2="28" />
@@ -136,7 +136,7 @@ export default function HomeRightPanel() {
 
                     {/* Upgrade Card */}
                     <div className="mt-auto pt-2 shrink-0">
-                        <div className="p-3 bg-gradient-to-br from-teal-50 to-emerald-50 border border-teal-100 rounded-xl">
+                        <div className="p-3 bg-linear-to-br from-teal-50 to-emerald-50 border border-teal-100 rounded-xl">
                             <div className="flex items-center gap-2 mb-1.5">
                                 <div className="w-6 h-6 bg-teal-600 rounded-lg flex items-center justify-center text-white">
                                     <Icon name="sparkles" size={12} strokeWidth={2} />

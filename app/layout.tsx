@@ -18,7 +18,7 @@ export default function RootLayout({
       <body className="antialiased">
         <ThemeProvider>
           <UIProvider>
-            <AppShell> {/* ✅ Sidebar ab conditionally dikhega */}
+            <AppShell>
               {children}
             </AppShell>
             <GlobalOverlays />

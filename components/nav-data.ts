@@ -33,8 +33,8 @@ export const NAV_SECTIONS: NavSection[] = [
     {
         title: 'Intelligence',
         items: [
-            { label: 'Company Brain', href: '/company-brain', icon: 'sparkles', flagship: true, soon: true, keywords: ['ask company', 'crm', 'what happened'] },
-            { label: 'Executive Dashboard', href: '/executive', icon: 'trending-up', soon: true, keywords: ['ceo', 'revenue', 'forecast', 'brief'] },
+            { label: 'Company Brain', href: '/company-brain', icon: 'sparkles', flagship: true, soon: false, keywords: ['ask company', 'crm', 'what happened'] },
+            { label: 'Executive Dashboard', href: '/executive', icon: 'trending-up', soon: false, keywords: ['ceo', 'revenue', 'forecast', 'brief'] },
             { label: 'Relationship Intelligence', href: '/relationships', icon: 'globe', soon: true, keywords: ['heatmap', 'risk map', 'clients'] },
             { label: 'Meeting Intelligence', href: '/meetings', icon: 'mic', soon: true, keywords: ['transcript', 'action items', 'decisions'] },
         ],
