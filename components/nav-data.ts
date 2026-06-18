@@ -35,17 +35,17 @@ export const NAV_SECTIONS: NavSection[] = [
         items: [
             { label: 'Company Brain', href: '/company-brain', icon: 'sparkles', flagship: true, soon: false, keywords: ['ask company', 'crm', 'what happened'] },
             { label: 'Executive Dashboard', href: '/executive', icon: 'trending-up', soon: false, keywords: ['ceo', 'revenue', 'forecast', 'brief'] },
-            { label: 'Relationship Intelligence', href: '/relationships', icon: 'globe', soon: true, keywords: ['heatmap', 'risk map', 'clients'] },
-            { label: 'Meeting Intelligence', href: '/meetings', icon: 'mic', soon: true, keywords: ['transcript', 'action items', 'decisions'] },
+            { label: 'Relationship Intelligence', href: '/relationships', icon: 'globe', soon: false, keywords: ['heatmap', 'risk map', 'clients'] },
+            { label: 'Meeting Intelligence', href: '/meetings', icon: 'mic', soon: false, keywords: ['transcript', 'action items', 'decisions'] },
         ],
     },
     {
         title: 'Records',
         items: [
-            { label: 'Companies', href: '/companies', icon: 'building', soon: true, keywords: ['accounts', 'clients', 'company profile'] },
-            { label: 'People', href: '/people', icon: 'users', soon: true, keywords: ['contacts', 'person profile'] },
-            { label: 'Projects', href: '/projects', icon: 'kanban', soon: true, keywords: ['workspace', 'initiatives'] },
-            { label: 'Tasks', href: '/tasks', icon: 'check-square', soon: true, keywords: ['to-do', 'board', 'kanban'] },
+            { label: 'Companies', href: '/companies', icon: 'building', soon: false, keywords: ['accounts', 'clients', 'company profile'] },
+            { label: 'People', href: '/people', icon: 'users', soon: false, keywords: ['contacts', 'person profile'] },
+            { label: 'Projects', href: '/projects', icon: 'kanban', soon: false, keywords: ['workspace', 'initiatives'] },
+            { label: 'Tasks', href: '/tasks', icon: 'check-square', soon: false, keywords: ['to-do', 'board', 'kanban'] },
         ],
     },
     {
