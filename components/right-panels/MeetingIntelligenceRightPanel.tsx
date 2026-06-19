@@ -18,7 +18,7 @@ export default function MeetingIntelligenceRightPanel() {
     ];
 
     return (
-        <aside className="w-72 bg-white border-l border-gray-200 h-screen overflow-hidden shrink-0">
+        <aside className="w-80 bg-white border-l border-gray-200 h-screen overflow-hidden shrink-0">
             <div className="p-3.5 space-y-3.5">
                 {/* Header */}
                 <div className="flex items-center gap-2.5 pb-3 border-b border-gray-100">

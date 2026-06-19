@@ -26,7 +26,7 @@ export default function MemoryChatPage() {
         } else {
             inputRef.current?.focus();
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     // Scroll to bottom whenever messages change
@@ -89,11 +89,10 @@ export default function MemoryChatPage() {
                                             <Icon name="sparkles" size={13} strokeWidth={2} />
                                         </div>
                                     )}
-                                    <div className={`max-w-[80%] px-4 py-2.5 rounded-2xl text-[14px] leading-relaxed ${
-                                        msg.role === 'user'
-                                            ? 'bg-teal-600 text-white rounded-tr-sm'
-                                            : 'bg-white border border-gray-100 text-gray-700 rounded-tl-sm shadow-sm'
-                                    }`}>
+                                    <div className={`max-w-[80%] px-4 py-2.5 rounded-2xl text-[14px] leading-relaxed ${msg.role === 'user'
+                                        ? 'bg-teal-600 text-white rounded-tr-sm'
+                                        : 'bg-white border border-gray-100 text-gray-700 rounded-tl-sm shadow-sm'
+                                        }`}>
                                         {msg.text}
                                     </div>
                                 </div>

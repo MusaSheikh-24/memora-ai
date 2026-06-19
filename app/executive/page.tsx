@@ -155,73 +155,71 @@ export default function ExecutiveDashboard() {
                 <TopBar />
 
                 <div className="flex-1 overflow-y-auto">
-                    <div className="max-w-7xl mx-auto px-8 py-8">
+                    <div className="max-w-7xl mx-auto px-6 py-6 space-y-5">
                         {/* Header */}
-                        <div className="mb-8">
-                            <div className="flex items-center justify-between mb-6">
-                                <div className="flex items-center gap-3">
-                                    <div className="w-12 h-12 rounded-xl bg-linear-to-br from-teal-500 to-teal-600 flex items-center justify-center shadow-lg">
-                                        <Icon name="sparkles" size={24} className="text-white" />
-                                    </div>
-                                    <div>
-                                        <h1 className="text-3xl font-bold text-gray-900">Executive Dashboard</h1>
-                                        <p className="text-gray-500 text-sm mt-0.5">High-level business intelligence & performance</p>
-                                    </div>
+                        <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 rounded-lg bg-linear-to-br from-teal-500 to-teal-600 flex items-center justify-center shadow-md shadow-teal-500/30">
+                                    <Icon name="sparkles" size={18} className="text-white" />
                                 </div>
-                                <div className="flex items-center gap-2 bg-white p-1 rounded-lg border border-gray-200 shadow-sm">
-                                    {['week', 'month', 'quarter', 'year'].map((range) => (
-                                        <button
-                                            key={range}
-                                            onClick={() => setTimeRange(range)}
-                                            className={`px-4 py-2 rounded-md text-xs font-semibold transition-all cursor-pointer ${timeRange === range
-                                                ? 'bg-teal-600 text-white shadow-sm'
-                                                : 'text-gray-600 hover:bg-gray-50'
-                                                }`}
-                                        >
-                                            {range.charAt(0).toUpperCase() + range.slice(1)}
-                                        </button>
-                                    ))}
+                                <div>
+                                    <h1 className="text-xl font-bold text-gray-900">Executive Dashboard</h1>
+                                    <p className="text-gray-500 text-xs">High-level business intelligence & performance</p>
                                 </div>
+                            </div>
+                            <div className="flex items-center gap-1 bg-white p-1 rounded-lg border border-gray-200 shadow-sm">
+                                {['week', 'month', 'quarter', 'year'].map((range) => (
+                                    <button
+                                        key={range}
+                                        onClick={() => setTimeRange(range)}
+                                        className={`px-3 py-1.5 rounded-md text-[10px] font-semibold transition-all cursor-pointer ${timeRange === range
+                                            ? 'bg-teal-600 text-white shadow-sm'
+                                            : 'text-gray-600 hover:bg-gray-50'
+                                            }`}
+                                    >
+                                        {range.charAt(0).toUpperCase() + range.slice(1)}
+                                    </button>
+                                ))}
                             </div>
                         </div>
 
                         {/* Key Metrics */}
-                        <div className="grid grid-cols-4 gap-4 mb-8">
+                        <div className="grid grid-cols-4 gap-4">
                             {currentMetrics.map((metric, index) => (
-                                <div key={index} className="bg-white rounded-xl p-5 border border-gray-200 shadow-sm hover:shadow-lg hover:border-teal-300 transition-all cursor-pointer group">
-                                    <div className="flex items-start justify-between mb-3">
-                                        <div className={`w-11 h-11 rounded-xl bg-${metric.color}-50 flex items-center justify-center group-hover:scale-110 transition-transform`}>
-                                            <Icon name={metric.icon as any} size={20} className={`text-${metric.color}-600`} />
+                                <div key={index} className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer group">
+                                    <div className="flex items-start justify-between mb-2">
+                                        <div className={`w-9 h-9 rounded-lg bg-${metric.color}-50 flex items-center justify-center group-hover:scale-110 transition-transform`}>
+                                            <Icon name={metric.icon as any} size={16} className={`text-${metric.color}-600`} />
                                         </div>
-                                        <span className={`text-xs font-bold px-2.5 py-1 rounded-lg ${metric.positive ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'
+                                        <span className={`text-[10px] font-bold px-2 py-0.5 rounded ${metric.positive ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'
                                             }`}>
                                             {metric.change}
                                         </span>
                                     </div>
-                                    <p className="text-gray-500 text-xs font-semibold uppercase tracking-wider mb-1">{metric.label}</p>
-                                    <h3 className="text-2xl font-bold text-gray-900">{metric.value}</h3>
+                                    <p className="text-gray-500 text-[10px] font-semibold uppercase tracking-wider mb-0.5">{metric.label}</p>
+                                    <h3 className="text-xl font-bold text-gray-900">{metric.value}</h3>
                                 </div>
                             ))}
                         </div>
 
                         {/* Revenue Chart */}
-                        <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm mb-8">
-                            <div className="flex items-center justify-between mb-6">
+                        <div className="bg-white rounded-xl border border-gray-200 p-4 shadow-sm">
+                            <div className="flex items-center justify-between mb-4">
                                 <div>
-                                    <h2 className="text-base font-bold text-gray-900 flex items-center gap-2">
-                                        <Icon name="file" size={18} className="text-teal-600" />
+                                    <h2 className="text-sm font-bold text-gray-900 flex items-center gap-2">
+                                        <Icon name="file" size={16} className="text-teal-600" />
                                         Revenue Trend
                                     </h2>
-                                    <p className="text-xs text-gray-500 mt-0.5">Current vs Previous Period</p>
+                                    <p className="text-[10px] text-gray-500 mt-0.5">Current vs Previous Period</p>
                                 </div>
-                                <div className="flex items-center gap-4">
-                                    <div className="flex items-center gap-2">
+                                <div className="flex items-center gap-3">
+                                    <div className="flex items-center gap-1.5">
                                         <div className="w-3 h-0.5 bg-teal-500 rounded-full" />
-                                        <span className="text-xs text-gray-600 font-medium">Current</span>
+                                        <span className="text-[10px] text-gray-600 font-medium">Current</span>
                                     </div>
-                                    <div className="flex items-center gap-2">
+                                    <div className="flex items-center gap-1.5">
                                         <div className="w-3 h-0.5 bg-gray-300 rounded-full" style={{ borderTop: '1px dashed' }} />
-                                        <span className="text-xs text-gray-600 font-medium">Previous</span>
+                                        <span className="text-[10px] text-gray-600 font-medium">Previous</span>
                                     </div>
                                 </div>
                             </div>
@@ -336,20 +334,20 @@ export default function ExecutiveDashboard() {
                             </div>
                         </div>
 
-                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
                             {/* Main Content */}
-                            <div className="lg:col-span-2 space-y-6">
+                            <div className="lg:col-span-2 space-y-5">
                                 {/* Department Performance */}
                                 <div>
-                                    <div className="flex items-center justify-between mb-4">
-                                        <h2 className="text-base font-bold text-gray-900 flex items-center gap-2">
-                                            <Icon name="folder" size={18} className="text-teal-600" />
+                                    <div className="flex items-center justify-between mb-3">
+                                        <h2 className="text-sm font-bold text-gray-900 flex items-center gap-2">
+                                            <Icon name="folder" size={16} className="text-teal-600" />
                                             Department Performance
                                         </h2>
-                                        <div className="flex items-center gap-2">
+                                        <div className="flex items-center gap-1.5">
                                             <button
                                                 onClick={() => setSelectedDept('all')}
-                                                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition cursor-pointer ${selectedDept === 'all' ? 'bg-teal-600 text-white' : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50'
+                                                className={`px-2.5 py-1 rounded-md text-[10px] font-semibold transition cursor-pointer ${selectedDept === 'all' ? 'bg-teal-600 text-white' : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50'
                                                     }`}
                                             >
                                                 All
@@ -358,7 +356,7 @@ export default function ExecutiveDashboard() {
                                                 <button
                                                     key={dept}
                                                     onClick={() => setSelectedDept(dept)}
-                                                    className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition cursor-pointer capitalize ${selectedDept === dept ? 'bg-teal-600 text-white' : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50'
+                                                    className={`px-2.5 py-1 rounded-md text-[10px] font-semibold transition cursor-pointer capitalize ${selectedDept === dept ? 'bg-teal-600 text-white' : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50'
                                                         }`}
                                                 >
                                                     {dept}
@@ -366,18 +364,18 @@ export default function ExecutiveDashboard() {
                                             ))}
                                         </div>
                                     </div>
-                                    <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
-                                        <div className="space-y-5">
+                                    <div className="bg-white rounded-xl border border-gray-200 p-4 shadow-sm">
+                                        <div className="space-y-4">
                                             {filteredDepartments.map((dept, index) => (
                                                 <div key={index} className="group cursor-pointer">
-                                                    <div className="flex items-center justify-between mb-2">
-                                                        <div className="flex items-center gap-3">
-                                                            <h3 className="text-sm font-bold text-gray-900">{dept.name}</h3>
-                                                            <span className="text-xs text-gray-500">Target: {dept.target}</span>
+                                                    <div className="flex items-center justify-between mb-1.5">
+                                                        <div className="flex items-center gap-2">
+                                                            <h3 className="text-xs font-bold text-gray-900">{dept.name}</h3>
+                                                            <span className="text-[10px] text-gray-500">Target: {dept.target}</span>
                                                         </div>
                                                         <div className="flex items-center gap-2">
-                                                            <span className="text-xs font-bold text-gray-900">{dept.actual}</span>
-                                                            <span className={`text-xs font-bold px-2.5 py-1 rounded-lg ${dept.progress >= 80 ? 'bg-green-50 text-green-700' :
+                                                            <span className="text-[10px] font-bold text-gray-900">{dept.actual}</span>
+                                                            <span className={`text-[10px] font-bold px-2 py-0.5 rounded ${dept.progress >= 80 ? 'bg-green-50 text-green-700' :
                                                                 dept.progress >= 60 ? 'bg-yellow-50 text-yellow-700' :
                                                                     'bg-red-50 text-red-700'
                                                                 }`}>
@@ -385,7 +383,7 @@ export default function ExecutiveDashboard() {
                                                             </span>
                                                         </div>
                                                     </div>
-                                                    <div className="h-2.5 bg-gray-100 rounded-full overflow-hidden">
+                                                    <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
                                                         <div
                                                             className={`h-full bg-linear-to-r from-${dept.color}-500 to-${dept.color}-600 rounded-full transition-all duration-700 group-hover:opacity-80`}
                                                             style={{ width: `${dept.progress}%` }}
@@ -399,26 +397,26 @@ export default function ExecutiveDashboard() {
 
                                 {/* Recent Highlights */}
                                 <div>
-                                    <h2 className="text-base font-bold text-gray-900 mb-4 flex items-center gap-2">
-                                        <Icon name="sparkles" size={18} className="text-teal-600" />
+                                    <h2 className="text-sm font-bold text-gray-900 mb-3 flex items-center gap-2">
+                                        <Icon name="sparkles" size={16} className="text-teal-600" />
                                         Recent Highlights
                                     </h2>
                                     <div className="bg-white rounded-xl border border-gray-200 divide-y divide-gray-100 shadow-sm">
                                         {recentHighlights.map((highlight, index) => (
-                                            <div key={index} className="p-5 hover:bg-gray-50 transition-all cursor-pointer group">
-                                                <div className="flex items-start gap-3">
-                                                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform ${highlight.type === 'success' ? 'bg-green-50' : 'bg-blue-50'
+                                            <div key={index} className="p-4 hover:bg-gray-50 transition-all cursor-pointer group">
+                                                <div className="flex items-start gap-2.5">
+                                                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform ${highlight.type === 'success' ? 'bg-green-50' : 'bg-blue-50'
                                                         }`}>
                                                         <Icon
                                                             name={highlight.icon as any}
-                                                            size={18}
+                                                            size={14}
                                                             className={highlight.type === 'success' ? 'text-green-600' : 'text-blue-600'}
                                                         />
                                                     </div>
                                                     <div className="flex-1 min-w-0">
-                                                        <h3 className="font-bold text-gray-900 text-sm mb-1">{highlight.title}</h3>
-                                                        <p className="text-xs text-gray-600 mb-2">{highlight.description}</p>
-                                                        <p className="text-xs text-gray-400 font-medium">{highlight.time}</p>
+                                                        <h3 className="font-bold text-gray-900 text-xs mb-0.5">{highlight.title}</h3>
+                                                        <p className="text-[10px] text-gray-600 mb-1">{highlight.description}</p>
+                                                        <p className="text-[9px] text-gray-400 font-medium">{highlight.time}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -428,17 +426,17 @@ export default function ExecutiveDashboard() {
 
                                 {/* Upcoming Milestones */}
                                 <div>
-                                    <h2 className="text-base font-bold text-gray-900 mb-4 flex items-center gap-2">
-                                        <Icon name="calendar" size={18} className="text-teal-600" />
+                                    <h2 className="text-sm font-bold text-gray-900 mb-3 flex items-center gap-2">
+                                        <Icon name="calendar" size={16} className="text-teal-600" />
                                         Upcoming Milestones
                                     </h2>
                                     <div className="grid grid-cols-3 gap-3">
                                         {upcomingMilestones.map((milestone, index) => (
-                                            <div key={index} className="bg-white rounded-xl p-4 border-2 border-gray-200 hover:border-teal-400 hover:shadow-md transition-all cursor-pointer group">
-                                                <div className={`w-2.5 h-2.5 rounded-full mb-3 ${milestone.priority === 'high' ? 'bg-red-500' : 'bg-yellow-500'
+                                            <div key={index} className="bg-white rounded-xl p-3 border border-gray-200 hover:border-teal-400 hover:shadow-md transition-all cursor-pointer group">
+                                                <div className={`w-2 h-2 rounded-full mb-2 ${milestone.priority === 'high' ? 'bg-red-500' : 'bg-yellow-500'
                                                     }`} />
-                                                <h3 className="font-bold text-gray-900 text-sm mb-1.5">{milestone.title}</h3>
-                                                <p className="text-xs text-gray-500 font-medium">{milestone.date}</p>
+                                                <h3 className="font-bold text-gray-900 text-[10px] mb-1 leading-tight">{milestone.title}</h3>
+                                                <p className="text-[9px] text-gray-500 font-medium">{milestone.date}</p>
                                             </div>
                                         ))}
                                     </div>
@@ -446,40 +444,40 @@ export default function ExecutiveDashboard() {
                             </div>
 
                             {/* Inline Sidebar */}
-                            <div className="space-y-5">
+                            <div className="space-y-4">
                                 {/* Executive Summary */}
-                                <div className="bg-linear-to-br from-teal-600 to-teal-700 rounded-xl p-5 text-white shadow-lg cursor-pointer hover:shadow-xl transition-shadow">
-                                    <div className="flex items-center gap-2 mb-3">
-                                        <Icon name="sparkles" size={18} className="text-teal-100" />
-                                        <h3 className="font-bold text-base">Executive Summary</h3>
+                                <div className="bg-linear-to-br from-teal-600 to-teal-700 rounded-xl p-4 text-white shadow-md cursor-pointer hover:shadow-lg transition-shadow">
+                                    <div className="flex items-center gap-2 mb-2">
+                                        <Icon name="sparkles" size={14} className="text-teal-100" />
+                                        <h3 className="font-bold text-xs">Executive Summary</h3>
                                     </div>
-                                    <p className="text-sm text-teal-50 mb-4 leading-relaxed">
+                                    <p className="text-[10px] text-teal-50 mb-3 leading-relaxed">
                                         Strong performance across all departments. Revenue up 18% with excellent client satisfaction scores.
                                     </p>
-                                    <button className="w-full py-2.5 bg-white/10 hover:bg-white/20 rounded-lg text-sm font-bold transition backdrop-blur-sm border border-white/20 cursor-pointer">
+                                    <button className="w-full py-2 bg-white/10 hover:bg-white/20 rounded-lg text-[10px] font-bold transition backdrop-blur-sm border border-white/20 cursor-pointer">
                                         View Full Report
                                     </button>
                                 </div>
 
                                 {/* Key Alerts */}
-                                <div className="bg-white rounded-xl p-5 border border-gray-200 shadow-sm">
-                                    <h3 className="font-bold text-gray-900 mb-4 text-sm flex items-center gap-2">
-                                        <Icon name="alert" size={16} className="text-red-600" />
+                                <div className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm">
+                                    <h3 className="font-bold text-gray-900 mb-3 text-xs flex items-center gap-1.5">
+                                        <Icon name="alert" size={14} className="text-red-600" />
                                         Key Alerts
                                     </h3>
-                                    <div className="space-y-3">
+                                    <div className="space-y-2">
                                         {[
                                             { label: 'Contract renewal due', urgency: 'high', time: '18 days' },
                                             { label: 'Budget review needed', urgency: 'medium', time: '5 days' },
                                             { label: 'Team performance review', urgency: 'low', time: '2 weeks' },
                                         ].map((alert, index) => (
-                                            <div key={index} className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-gray-50 transition cursor-pointer group">
-                                                <div className={`w-2.5 h-2.5 rounded-full mt-1.5 shrink-0 ${alert.urgency === 'high' ? 'bg-red-500' :
+                                            <div key={index} className="flex items-start gap-2.5 p-2 rounded-lg hover:bg-gray-50 transition cursor-pointer group">
+                                                <div className={`w-2 h-2 rounded-full mt-1 shrink-0 ${alert.urgency === 'high' ? 'bg-red-500' :
                                                     alert.urgency === 'medium' ? 'bg-yellow-500' : 'bg-green-500'
                                                     }`} />
                                                 <div className="flex-1 min-w-0">
-                                                    <p className="text-xs font-bold text-gray-800 group-hover:text-teal-700 transition">{alert.label}</p>
-                                                    <p className="text-[10px] text-gray-400 mt-0.5 font-medium">{alert.time}</p>
+                                                    <p className="text-[10px] font-bold text-gray-800 group-hover:text-teal-700 transition">{alert.label}</p>
+                                                    <p className="text-[9px] text-gray-400 mt-0.5 font-medium">{alert.time}</p>
                                                 </div>
                                             </div>
                                         ))}
@@ -487,15 +485,15 @@ export default function ExecutiveDashboard() {
                                 </div>
 
                                 {/* Quick Actions */}
-                                <div className="bg-white rounded-xl p-5 border border-gray-200 shadow-sm">
-                                    <h3 className="font-bold text-gray-900 mb-4 text-sm flex items-center gap-2">
-                                        <Icon name="more" size={16} className="text-teal-600" />
+                                <div className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm">
+                                    <h3 className="font-bold text-gray-900 mb-3 text-xs flex items-center gap-1.5">
+                                        <Icon name="more" size={14} className="text-teal-600" />
                                         Quick Actions
                                     </h3>
-                                    <div className="space-y-2">
+                                    <div className="space-y-1.5">
                                         {['Generate Report', 'Schedule Meeting', 'Review Budget'].map((action, index) => (
-                                            <button key={index} className="w-full p-3 bg-gray-50 hover:bg-teal-50 border border-gray-200 hover:border-teal-300 rounded-lg transition-all text-left group cursor-pointer">
-                                                <span className="text-xs font-bold text-gray-700 group-hover:text-teal-700">{action}</span>
+                                            <button key={index} className="w-full p-2.5 bg-gray-50 hover:bg-teal-50 border border-gray-200 hover:border-teal-300 rounded-lg transition-all text-left group cursor-pointer">
+                                                <span className="text-[10px] font-bold text-gray-700 group-hover:text-teal-700">{action}</span>
                                             </button>
                                         ))}
                                     </div>

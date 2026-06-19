@@ -2,69 +2,20 @@
 import { useState } from 'react';
 import TopBar from '@/components/topbar';
 import AlertsRightPanel from '@/components/right-panels/AlertsRightPanel';
+import Icon from '@/components/icon';
 
 const filterTabs = [
     { label: 'All', count: 5, value: 'all' },
     { label: 'Unread', count: 3, value: 'unread' },
-    { label: 'Urgent', value: 'urgent' },
+    { label: 'Urgent', count: 1, value: 'urgent' },
 ];
 
 const alertsData = [
-    {
-        id: 1,
-        icon: '⚠️',
-        iconBg: 'bg-yellow-100',
-        title: 'Contract Renewal: ABC Company',
-        description: 'The Master Service Agreement expires in 18 days. Review and renew to avoid service interruption.',
-        time: '2 hours ago',
-        isNew: true,
-        isUrgent: true,
-        isUnread: true,
-    },
-    {
-        id: 2,
-        icon: '📧',
-        iconBg: 'bg-red-50',
-        title: 'Unanswered Email: Q2 Proposal',
-        description: 'Your proposal email to TechFlow Inc. has not received a reply in 8 days. Consider following up.',
-        time: 'Yesterday',
-        isNew: true,
-        isUrgent: false,
-        isUnread: true,
-    },
-    {
-        id: 3,
-        icon: '💰',
-        iconBg: 'bg-green-50',
-        title: 'Invoice Overdue: INV-45773',
-        description: 'Invoice INV-45773 for $6,150 from ABC Company is 14 days past due.',
-        time: '2 days ago',
-        isNew: true,
-        isUrgent: false,
-        isUnread: true,
-    },
-    {
-        id: 4,
-        icon: '✅',
-        iconBg: 'bg-green-100',
-        title: 'Contract Signed: Apple MSA',
-        description: 'Apple Inc. has countersigned the Master Service Agreement. All parties have executed the contract.',
-        time: '3 days ago',
-        isNew: false,
-        isUrgent: false,
-        isUnread: false,
-    },
-    {
-        id: 5,
-        icon: '📅',
-        iconBg: 'bg-teal-50', // Changed from purple-50
-        title: 'Meeting Scheduled: Q1 Review',
-        description: 'Quarterly review meeting with ABC Company scheduled for next Monday at 10:00 AM.',
-        time: '4 days ago',
-        isNew: false,
-        isUrgent: false,
-        isUnread: false,
-    },
+    { id: 1, icon: '⚠️', iconBg: 'bg-amber-100', title: 'Contract Renewal: ABC Company', description: 'The Master Service Agreement expires in 18 days.', time: '2h ago', isNew: true, isUrgent: true, isUnread: true },
+    { id: 2, icon: '📧', iconBg: 'bg-rose-50', title: 'Unanswered Email: Q2 Proposal', description: 'No reply in 8 days. Consider following up.', time: '1d ago', isNew: true, isUrgent: false, isUnread: true },
+    { id: 3, icon: '💰', iconBg: 'bg-emerald-50', title: 'Invoice Overdue: INV-45773', description: '$6,150 from ABC Company is 14 days past due.', time: '2d ago', isNew: true, isUrgent: false, isUnread: true },
+    { id: 4, icon: '✅', iconBg: 'bg-teal-100', title: 'Contract Signed: Apple MSA', description: 'Apple Inc. has countersigned the agreement.', time: '3d ago', isNew: false, isUrgent: false, isUnread: false },
+    { id: 5, icon: '📅', iconBg: 'bg-blue-50', title: 'Meeting Scheduled: Q1 Review', description: 'Next Monday at 10:00 AM with ABC Company.', time: '4d ago', isNew: false, isUrgent: false, isUnread: false },
 ];
 
 export default function AlertsPage() {
@@ -78,36 +29,36 @@ export default function AlertsPage() {
     });
 
     return (
-        <div className="flex h-screen overflow-hidden">
-            {/* Main Content Area */}
-            <main className="flex-1 flex flex-col overflow-hidden bg-gray-50">
-                {/* Fixed TopBar */}
+        <div className="flex h-screen overflow-hidden bg-gray-50">
+            <main className="flex-1 flex flex-col overflow-hidden">
                 <TopBar />
 
-                {/* Scrollable Content */}
                 <div className="flex-1 overflow-y-auto p-8">
-                    {/* Header */}
-                    <div className="mb-6">
-                        <h1 className="text-3xl font-extrabold text-gray-900 mb-2 flex items-center gap-2">
-                            <span className="text-2xl">🔔</span> Alerts
-                        </h1>
-                        <p className="text-sm text-gray-500">3 unread alerts need your attention</p>
+                    <div className="mb-8">
+                        <div className="flex items-center gap-2 mb-1">
+                            <div className="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center">
+                                <Icon name="bell" size={20} className="text-teal-600" />
+                            </div>
+                            <div>
+                                <h1 className="text-2xl font-bold text-gray-900">Alerts</h1>
+                                <p className="text-sm text-gray-500">3 unread alerts need attention</p>
+                            </div>
+                        </div>
                     </div>
 
-                    {/* Filter Tabs */}
                     <div className="flex gap-2 mb-6">
                         {filterTabs.map((tab) => (
                             <button
                                 key={tab.value}
                                 onClick={() => setActiveFilter(tab.value)}
-                                className={`px-4 py-2 rounded-lg text-sm font-medium transition cursor-pointer ${activeFilter === tab.value
-                                        ? 'bg-teal-600 text-white' // Changed from purple
-                                        : 'bg-white border border-gray-200 text-gray-700 hover:bg-gray-50'
+                                className={`px-3 py-1.5 rounded-lg text-xs font-medium transition cursor-pointer border ${activeFilter === tab.value
+                                    ? 'bg-teal-600 text-white border-teal-600'
+                                    : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-50'
                                     }`}
                             >
                                 {tab.label}
                                 {tab.count !== undefined && (
-                                    <span className={`ml-1.5 text-xs ${activeFilter === tab.value ? 'text-teal-100' : 'text-gray-500'}`}>
+                                    <span className={`ml-1.5 text-[10px] ${activeFilter === tab.value ? 'text-teal-100' : 'text-gray-500'}`}>
                                         ({tab.count})
                                     </span>
                                 )}
@@ -115,52 +66,47 @@ export default function AlertsPage() {
                         ))}
                     </div>
 
-                    {/* Alerts List */}
-                    <div className="space-y-3">
+                    <div className="space-y-2.5">
                         {filteredAlerts.map((alert) => (
                             <div
                                 key={alert.id}
-                                className={`bg-white border rounded-2xl p-5 shadow-sm hover:shadow-md transition cursor-pointer ${alert.isUrgent
-                                        ? 'border-l-4 border-l-teal-500 border-t-gray-200 border-r-gray-200 border-b-gray-200' // Changed from purple
-                                        : 'border-gray-200'
-                                    }`}
+                                className={`bg-white border rounded-xl p-3.5 shadow-sm hover:shadow-md transition cursor-pointer ${alert.isUrgent
+                                    ? 'border-l-4 border-l-amber-500 border-t-gray-200 border-r-gray-200 border-b-gray-200'
+                                    : 'border-gray-200'
+                                    } ${alert.isUnread ? 'bg-linear-to-r from-teal-50/50 to-white' : ''}`}
                             >
-                                <div className="flex items-start gap-4">
-                                    {/* Icon */}
-                                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg ${alert.iconBg}`}>
+                                <div className="flex items-start gap-3">
+                                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-lg shrink-0 ${alert.iconBg}`}>
                                         {alert.icon}
                                     </div>
 
-                                    {/* Content */}
-                                    <div className="flex-1">
-                                        <div className="flex items-center gap-2 mb-1">
-                                            <h3 className="text-sm font-bold text-gray-900">{alert.title}</h3>
+                                    <div className="flex-1 min-w-0">
+                                        <div className="flex items-center gap-2 mb-0.5">
+                                            <h3 className="text-sm font-semibold text-gray-900 truncate">{alert.title}</h3>
                                             {alert.isNew && (
-                                                <span className="text-[10px] font-bold text-white bg-teal-600 px-2 py-0.5 rounded">
+                                                <span className="text-[9px] font-bold text-white bg-teal-600 px-1.5 py-0.5 rounded shrink-0">
                                                     NEW
                                                 </span>
                                             )}
                                         </div>
-                                        <p className="text-xs text-gray-500 mb-1">{alert.description}</p>
-                                        <span className="text-[11px] text-gray-400">{alert.time}</span>
+                                        <p className="text-xs text-gray-600 mb-1 line-clamp-1">{alert.description}</p>
+                                        <span className="text-[10px] text-gray-400">{alert.time}</span>
                                     </div>
                                 </div>
                             </div>
                         ))}
                     </div>
 
-                    {/* Empty State */}
                     {filteredAlerts.length === 0 && (
                         <div className="text-center py-12">
-                            <div className="text-6xl mb-4">✅</div>
-                            <h3 className="text-lg font-bold text-gray-900 mb-2">All caught up!</h3>
-                            <p className="text-sm text-gray-500">No alerts match your current filter</p>
+                            <div className="text-3xl mb-2">✅</div>
+                            <h3 className="text-sm font-semibold text-gray-900 mb-1">All caught up!</h3>
+                            <p className="text-xs text-gray-500">No alerts match your filter</p>
                         </div>
                     )}
                 </div>
             </main>
 
-            {/* Fixed Right Panel - Alerts ka */}
             <AlertsRightPanel />
         </div>
     );

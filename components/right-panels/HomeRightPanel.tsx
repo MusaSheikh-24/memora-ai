@@ -87,7 +87,28 @@ export default function HomeRightPanel() {
                             </div>
                         </div>
                     </div>
+                    {/* Suggested Questions */}
+                    <div className="mb-4 cursor-pointer">
+                        <h3 className="text-[10px] font-semibold text-gray-400 uppercase tracking-widest mb-2">
+                            Suggested Questions
+                        </h3>
 
+                        <div className="space-y-2 cursor-alias">
+                            {[
+                                "Show contracts expiring next month",
+                                "Summarize latest meetings",
+                                "Which clients are overdue?",
+                                "What changed this week?"
+                            ].map((item) => (
+                                <button
+                                    key={item}
+                                    className="w-full text-left p-2.5 rounded-lg bg-gray-50 hover:bg-teal-50 text-[11px] text-gray-700 transition cursor-pointer"
+                                >
+                                    {item}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
                     {/* Company Smart Graph */}
                     <div className="mb-3 shrink-0">
                         <div className="flex items-center justify-between mb-2">
