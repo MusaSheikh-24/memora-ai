@@ -51,8 +51,8 @@ export const NAV_SECTIONS: NavSection[] = [
     {
         title: 'Build',
         items: [
-            { label: 'Automations', href: '/automations', icon: 'zap', soon: true, keywords: ['workflow', 'triggers', 'actions'] },
-            { label: 'Workspace Builder', href: '/builder', icon: 'grid', soon: true, keywords: ['create workspace', 'generate'] },
+            { label: 'Automations', href: '/automations', icon: 'zap', soon: false, keywords: ['workflow', 'triggers', 'actions'] },
+            { label: 'Workspace Builder', href: '/builder', icon: 'grid', soon: false, keywords: ['create workspace', 'generate'] },
         ],
     },
 ];
