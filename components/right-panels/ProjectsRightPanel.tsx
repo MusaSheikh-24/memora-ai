@@ -30,10 +30,10 @@ export default function ProjectsRightPanel() {
 
     return (
         <aside className="w-80 bg-white border-l border-gray-200 h-screen overflow-hidden shrink-0">
-            <div className="p-3.5 space-y-3.5">
+            <div className="px-4 py-3 space-y-3.5">
                 {/* Header */}
                 <div className="flex items-center gap-2.5 pb-3 border-b border-gray-100">
-                    <div className="w-9 h-9 rounded-lg bg-teal-600 flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-lg bg-teal-600 flex items-center justify-center">
                         <Icon name="kanban" size={16} className="text-white" />
                     </div>
                     <div className="flex-1">
@@ -137,22 +137,6 @@ export default function ProjectsRightPanel() {
                 </div>
 
                 {/* AI Insight */}
-                <div className="bg-gray-50 rounded-xl p-3 border border-gray-100 cursor-pointer hover:bg-teal-50 transition group">
-                    <div className="flex items-start gap-2">
-                        <div className="w-6 h-6 rounded-md bg-teal-100 group-hover:bg-teal-200 flex items-center justify-center shrink-0 transition">
-                            <Icon name="sparkles" size={11} className="text-teal-600" />
-                        </div>
-                        <div className="flex-1">
-                            <p className="text-[10px] font-semibold text-gray-900 mb-0.5">AI Insight</p>
-                            <p className="text-[9px] text-gray-600 leading-relaxed">
-                                CRM Integration is 3 days behind schedule
-                            </p>
-                            <button className="text-[9px] text-teal-600 font-semibold mt-1 hover:text-teal-700 transition">
-                                View Details →
-                            </button>
-                        </div>
-                    </div>
-                </div>
             </div>
         </aside>
     );

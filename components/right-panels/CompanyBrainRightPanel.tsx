@@ -16,10 +16,10 @@ export default function CompanyBrainRightPanel() {
 
     return (
         <aside className="w-80 bg-white border-l border-gray-200 h-screen overflow-y-auto shrink-0">
-            <div className="p-4 space-y-5">
+            <div className="px-4 py-3">
                 {/* Header */}
                 <div className="flex items-center gap-2.5 pb-3 border-b border-gray-100">
-                    <div className="w-9 h-9 rounded-xl bg-linear-to-br from-teal-500 to-teal-600 flex items-center justify-center shadow-md">
+                    <div className="w-8 h-8 rounded-xl bg-linear-to-br from-teal-500 to-teal-600 flex items-center justify-center shadow-md">
                         <Icon name="sparkles" size={16} className="text-white" />
                     </div>
                     <div>

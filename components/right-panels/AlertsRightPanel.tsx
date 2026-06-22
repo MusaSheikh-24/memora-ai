@@ -6,8 +6,8 @@ export default function AlertsRightPanel() {
         <aside className="w-80 bg-white border-l border-gray-200 h-screen flex flex-col shrink-0">
             <div className="px-4 py-3 border-b border-gray-100 shrink-0">
                 <div className="flex items-center gap-2">
-                    <div className="w-7 h-7 bg-teal-100 rounded-lg flex items-center justify-center">
-                        <Icon name="bell" size={14} className="text-teal-600" />
+                    <div className="w-7 h-7 bg-teal-600 rounded-lg flex items-center justify-center">
+                        <Icon name="bell" size={14} className="text-white" />
                     </div>
                     <div>
                         <h2 className="text-xs font-bold text-gray-900">Alert Summary</h2>

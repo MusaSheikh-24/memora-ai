@@ -1,3 +1,4 @@
+'use client';
 import Link from 'next/link';
 
 export default function LandingPage() {
@@ -22,7 +23,11 @@ export default function LandingPage() {
       {/* Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-xl border-b border-gray-200/60 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2.5 cursor-pointer group">
+          <Link
+            href="/"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="flex items-center gap-2.5 cursor-pointer group"
+          >
             <div className="relative w-9 h-9 bg-linear-to-br from-teal-500 to-teal-700 rounded-xl flex items-center justify-center text-white font-bold text-sm shadow-lg shadow-teal-600/30 group-hover:shadow-xl group-hover:shadow-teal-600/40 transition-all duration-300 group-hover:scale-105 group-hover:rotate-3">
               <span className="relative z-10">S</span>
               <div className="absolute inset-0 bg-white/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -30,7 +35,7 @@ export default function LandingPage() {
             <span className="text-xl font-bold bg-linear-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent group-hover:from-teal-700 group-hover:to-teal-600 transition-all duration-300">
               SyncOps
             </span>
-          </div>
+          </Link>
 
           <div className="hidden md:flex items-center gap-1 bg-gray-100/80 backdrop-blur rounded-full p-1">
             {['Features', 'Pricing', 'Customers'].map((item) => (
@@ -61,7 +66,6 @@ export default function LandingPage() {
           </div>
         </div>
       </nav>
-
       {/* Hero Section */}
       <section className="relative pt-28 pb-32 overflow-hidden z-10">
         <div className="relative max-w-7xl mx-auto px-6">

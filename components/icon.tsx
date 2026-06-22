@@ -7,7 +7,7 @@ export type IconName =
     | 'sun' | 'moon' | 'send' | 'eye' | 'more' | 'plus' | 'mail' | 'note'
     | 'alert' | 'file' | 'contract' | 'receipt' | 'arrow-up-right' | 'voice'
     | 'chevron-right' | 'chevron-down' | 'network' | 'chart' | 'phone' | 'tag'
-    | 'clock' | 'activity' | 'download' | 'shield' | 'lock';
+    | 'clock' | 'activity' | 'download' | 'shield' | 'lock' | 'info';
 
 const PATHS: Record<IconName, ReactNode> = {
     home: (<><path d="m3 10.5 9-7 9 7" /><path d="M5 9.5V20a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5" /><path d="M9.5 21v-6h5v6" /></>),
@@ -59,6 +59,9 @@ const PATHS: Record<IconName, ReactNode> = {
     // Newly added icons for Settings
     shield: (<><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></>),
     lock: (<><rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></>),
+
+    // Info icon
+    info: (<><circle cx="12" cy="12" r="9" /><path d="M12 8v4" /><path d="M12 16h.01" /></>),
 };
 
 interface IconProps {
