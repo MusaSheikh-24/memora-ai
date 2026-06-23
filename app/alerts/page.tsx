@@ -36,8 +36,8 @@ export default function AlertsPage() {
                 <div className="flex-1 overflow-y-auto p-8">
                     <div className="mb-8">
                         <div className="flex items-center gap-2 mb-1">
-                            <div className="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center">
-                                <Icon name="bell" size={20} className="text-teal-600" />
+                            <div className="w-12 h-12 bg-teal-600 rounded-xl flex items-center justify-center">
+                                <Icon name="bell" size={20} className="text-white" />
                             </div>
                             <div>
                                 <h1 className="text-2xl font-bold text-gray-900">Alerts</h1>

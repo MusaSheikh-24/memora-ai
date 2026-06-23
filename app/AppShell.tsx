@@ -5,12 +5,11 @@ import Sidebar from '@/components/sidebar';
 export default function AppShell({ children }: { children: React.ReactNode }) {
     const pathname = usePathname();
 
-    // ✅ Landing page par Sidebar NAHI dikhana
-    if (pathname === '/') {
+    if (pathname === '/' || pathname === '/signup' || pathname === '/login' || pathname === '/contact') {
         return <>{children}</>;
     }
 
-    // ✅ Baaki sab pages (dashboard, chat, etc.) par Sidebar DIKHAO
+
     return (
         <div className="flex h-screen">
             <Sidebar />

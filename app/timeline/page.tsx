@@ -142,8 +142,8 @@ export default function TimelinePage() {
                         {/* Header */}
                         <div className="mb-8">
                             <div className="flex items-center gap-3 mb-2">
-                                <div className="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center">
-                                    <Icon name="calendar" size={24} className="text-teal-600" />
+                                <div className="w-12 h-12 bg-teal-600 rounded-xl flex items-center justify-center">
+                                    <Icon name="calendar" size={24} className="text-white" />
                                 </div>
                                 <div>
                                     <h1 className="text-2xl font-bold text-gray-900">Timeline</h1>

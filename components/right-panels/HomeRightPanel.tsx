@@ -19,7 +19,6 @@ export default function HomeRightPanel() {
 
                 {/* Content - Scrollable */}
                 <div className="flex-1 px-3 py-2 overflow-y-auto flex flex-col">
-
                     {/* Recent Activity */}
                     <div className="mb-3 shrink-0">
                         <div className="flex items-center justify-between mb-2">
@@ -34,7 +33,9 @@ export default function HomeRightPanel() {
                             ].map((a) => (
                                 <div key={a.title} className="flex items-center justify-between p-2 bg-gray-50 rounded-lg cursor-pointer hover:bg-teal-50/50 transition">
                                     <div className="flex items-center gap-2">
-                                        <span className={`${a.color} shrink-0`}><Icon name={a.icon as import('@/components/icon').IconName} size={13} /></span>
+                                        <span className={`${a.color} shrink-0`}>
+                                            <Icon name={a.icon as import('@/components/icon').IconName} size={13} />
+                                        </span>
                                         <div>
                                             <div className="text-[11px] font-semibold text-gray-900">{a.title}</div>
                                             <div className="text-[9px] text-gray-400">{a.sub}</div>
@@ -76,7 +77,9 @@ export default function HomeRightPanel() {
                         <h3 className="text-[10px] font-semibold text-gray-400 uppercase tracking-widest mb-2">Alerts</h3>
                         <div className="p-2.5 bg-amber-50 border border-amber-100 rounded-lg cursor-pointer hover:bg-amber-100/70 transition">
                             <div className="flex items-start gap-2">
-                                <span className="text-amber-500 mt-0.5 shrink-0"><Icon name="alert" size={13} /></span>
+                                <span className="text-amber-500 mt-0.5 shrink-0">
+                                    <Icon name="alert" size={13} />
+                                </span>
                                 <div className="flex-1 min-w-0">
                                     <div className="flex items-center justify-between gap-1 mb-0.5">
                                         <div className="text-[11px] font-semibold text-gray-900">Contract expiring soon</div>
@@ -87,12 +90,12 @@ export default function HomeRightPanel() {
                             </div>
                         </div>
                     </div>
+
                     {/* Suggested Questions */}
                     <div className="mb-4 cursor-pointer">
                         <h3 className="text-[10px] font-semibold text-gray-400 uppercase tracking-widest mb-2">
                             Suggested Questions
                         </h3>
-
                         <div className="space-y-2 cursor-alias">
                             {[
                                 "Show contracts expiring next month",
@@ -109,12 +112,13 @@ export default function HomeRightPanel() {
                             ))}
                         </div>
                     </div>
+
                     {/* Company Smart Graph */}
                     <div className="mb-3 shrink-0">
                         <div className="flex items-center justify-between mb-2">
                             <h3 className="text-[10px] font-semibold text-gray-400 uppercase tracking-widest">Company Graph</h3>
                             <Link href="/graph" className="text-[10px] text-teal-600 font-medium hover:text-teal-700 cursor-pointer flex items-center gap-0.5">
-                                Open <Icon name="arrow-up-right" size={10} />
+                                Open  <Icon name="arrow-up-right" size={10} />
                             </Link>
                         </div>
                         <Link

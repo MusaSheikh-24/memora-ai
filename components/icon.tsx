@@ -7,7 +7,8 @@ export type IconName =
     | 'sun' | 'moon' | 'send' | 'eye' | 'more' | 'plus' | 'mail' | 'note'
     | 'alert' | 'file' | 'contract' | 'receipt' | 'arrow-up-right' | 'voice'
     | 'chevron-right' | 'chevron-down' | 'network' | 'chart' | 'phone' | 'tag'
-    | 'clock' | 'activity' | 'download' | 'shield' | 'lock' | 'info';
+    | 'clock' | 'activity' | 'download' | 'shield' | 'lock' | 'info'
+    | 'sidebar' | 'close' | 'menu';  // ✅ Ye 3 icons add karo
 
 const PATHS: Record<IconName, ReactNode> = {
     home: (<><path d="m3 10.5 9-7 9 7" /><path d="M5 9.5V20a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5" /><path d="M9.5 21v-6h5v6" /></>),
@@ -45,23 +46,20 @@ const PATHS: Record<IconName, ReactNode> = {
     'chevron-right': (<path d="m9 18 6-6-6-6" />),
     'chevron-down': (<path d="m6 9 6 6 6-6" />),
     phone: (<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-1.1 2.18L7.17 12a12.6 12.6 0 0 0 6.65 6.65l1.67-1.67a2 2 0 0 1 2.18-1.1 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92Z" />),
-
-    // New icons added
     network: (<><circle cx="12" cy="6" r="3" /><circle cx="6" cy="18" r="3" /><circle cx="18" cy="18" r="3" /><path d="M9.6 8.4 7.4 15.6" /><path d="m14.4 8.4 2.2 7.2" /><path d="M6 18h12" /></>),
     chart: (<><path d="M3 3v18h18" /><path d="m19 9-5 5-4-4-3 3" /></>),
     tag: (<path d="M12.5 17.5 17 13l-4.5-4.5a2.4 2.4 0 0 0-3.4 0L2 14V5a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2Z" />),
-
-    // Newly added icons for Automations
     clock: (<><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 3" /></>),
     activity: (<><path d="M22 12h-4l-3 9L9 3l-3 9H2" /></>),
     download: (<><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><path d="m7 10 5 5 5-5" /><path d="M12 15V3" /></>),
-
-    // Newly added icons for Settings
     shield: (<><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></>),
     lock: (<><rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></>),
-
-    // Info icon
     info: (<><circle cx="12" cy="12" r="9" /><path d="M12 8v4" /><path d="M12 16h.01" /></>),
+
+    // ✅ Naye icons add karo:
+    sidebar: (<><path d="M3 3h18v18H3z" /><path d="M9 3v18" /></>),
+    close: (<><path d="M18 6 6 18" /><path d="m6 6 12 12" /></>),
+    menu: (<><path d="M4 12h16" /><path d="M4 6h16" /><path d="M4 18h16" /></>),
 };
 
 interface IconProps {
